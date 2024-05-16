@@ -1,0 +1,4 @@
+./iso/
+./result/
+./nixos.qcow2
+./Makefile.1
