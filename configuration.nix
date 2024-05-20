@@ -10,8 +10,9 @@ let home-manager = builtins.fetchTarball {
     "${home-manager}/nixos"
   ] ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) ./hardware-configuration.nix;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.version = 2;
+  boot.loader.grub.splashImage = null;
 
   nixpkgs.config = {
     allowUnfree = true;
