@@ -27,6 +27,8 @@ let home-manager = builtins.fetchTarball {
   networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
   time.timeZone = "Europe/Moscow";
+  services.timesyncd.enable = false;
+  systemd.services.save-hwclock.wantedBy = lib.mkForce [ ];
 
   environment.systemPackages = with pkgs; [
     pmutils procps htop atop iotop iftop ncdu tree less unzip unrar p7zip atool rlwrap jq fzf silver-searcher gnupg
