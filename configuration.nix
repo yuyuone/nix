@@ -11,8 +11,7 @@ let home-manager = builtins.fetchTarball {
   ] ++ lib.optional (builtins.pathExists ./hardware-configuration.nix) ./hardware-configuration.nix;
 
   boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.splashImage = null;
+  boot.loader.grub.device = "/dev/sda";  # <<<<<<<<
 
   nixpkgs.config = {
     allowUnfree = true;
